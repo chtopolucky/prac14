@@ -1,0 +1,17 @@
+﻿<Window x:Class="Пр_13.Option"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Пр_13"
+        mc:Ignorable="d"
+        Title="Настройка размеров" Height="178" Width="247" Activated="Options_Activated" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Content="Установить" HorizontalAlignment="Left" Margin="34,89,0,0" VerticalAlignment="Top" Height="33" Width="173" Click="Set_Click"/>
+        <TextBox x:Name="NewRow" HorizontalAlignment="Left" Margin="34,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173"/>
+        <TextBox x:Name="NewColumn" HorizontalAlignment="Left" Margin="34,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173"/>
+        <Label Content="Строки" HorizontalAlignment="Left" Margin="34,37,0,0" VerticalAlignment="Top"/>
+        <Label Content="Столбцы" HorizontalAlignment="Left" Margin="34,1,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

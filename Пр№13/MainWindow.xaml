@@ -1,0 +1,96 @@
+﻿<Window x:Class="Пр_13.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Пр_13"
+        mc:Ignorable="d"
+        Title="Практическая работа №13" Height="668" Width="456" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" Icon="/a_filetextbox.bmp" Loaded="Window_Loaded" MinHeight="668" MinWidth="456">
+    <Grid Loaded="Window_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="44*"/>
+            <RowDefinition Height="175*"/>
+            <RowDefinition Height="243*"/>
+            <RowDefinition Height="135*"/>
+            <RowDefinition Height="38*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="241*"/>
+            <ColumnDefinition Width="215*"/>
+        </Grid.ColumnDefinitions>
+        <Menu VerticalAlignment="Center"  Grid.ColumnSpan="2" Margin="0,0,73,0">
+            <MenuItem Header="Сохранить" Click="SaveArray_Click"></MenuItem>
+            <MenuItem Header="Открыть" Click="OpenArray_Click"></MenuItem>
+            <MenuItem Header="О программе" Click="Info_Click"></MenuItem>
+            <MenuItem Header="Выход" Click="Exit_Click"></MenuItem>
+            <MenuItem Header="Настройки" Click="Settings_Click"></MenuItem>
+        </Menu>
+        <ToolBar VerticalAlignment="Top"  Grid.ColumnSpan="2" Margin="0,17,0,0" Grid.RowSpan="2">
+            <Button Content="Рассчитать" Click="Calculate_Click"></Button>
+            <Separator></Separator>
+            <Button Content="Очистить" Click="Clear_Click"></Button>
+        </ToolBar>
+        <GroupBox Header="Исходные значения" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <GroupBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Сведения" Click="InfoData_Click"></MenuItem>
+                </ContextMenu>
+            </GroupBox.ContextMenu>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="43*"/>
+                    <RowDefinition Height="60*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="222*"/>
+                    <ColumnDefinition Width="223*"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid x:Name="DataGrid" Margin="10,14,10,8" FontSize="16" Grid.ColumnSpan="2" CellEditEnding="DataGrid_CellEditEnding" CurrentCellChanged="DataGrid_CurrentCellChanged" Background="White" />
+                <GroupBox Margin="10,6,22,10" Header=" Размер матрицы" Grid.Row="1">
+                    <Grid Height="149">
+                        <TextBox x:Name="Row" Margin="10,10,10,103" FontSize="16" TextChanged="Row_TextChanged"></TextBox>
+                        <TextBox x:Name="Column" Margin="10,72,10,45" FontSize="16" TextChanged="Column_TextChanged"/>
+                        <Label Margin="10,-17,63,137" Content="Строки"></Label>
+                        <Label Margin="10,46,63,77" Content="Столбцы"></Label>
+                        <Button Margin="10,109,10,10" Content="Создать" Click="CreateArray_Click"></Button>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="Диапозон значений" Margin="16,6,10,10" Grid.Column="1" Grid.Row="1">
+                    <Grid Margin="0,0,-2,0" Height="166">
+                        <TextBox x:Name="Start" Margin="10,18,10,114" FontSize="16" TextChanged="Start_TextChanged"/>
+                        <TextBox x:Name="End" Margin="10,78,10,54" FontSize="16" TextChanged="End_TextChanged"/>
+                        <Label Margin="10,-9,85,148" Content="Начало "/>
+                        <Label Margin="10,52,85,80" Content="Конец"/>
+                        <Button Margin="10,117,10,0" Height="29" VerticalAlignment="Top" Content="Заполнить" Click="FillArray_Click"></Button>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Margin="10,24,10,18" Header="Результат" Grid.Row="4" Grid.ColumnSpan="2">
+            <GroupBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Сведения" Click="InfoResult_Click"></MenuItem>
+                </ContextMenu>
+            </GroupBox.ContextMenu>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="283*"/>
+                    <ColumnDefinition Width="141*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="Result" Margin="10,10,6,10" FontSize="16" IsReadOnly="True"></TextBox>
+                <Button Margin="10,10,10,10" Content="Рассчитать" FontSize="16" Grid.Column="1" Click="Calculate_Click"></Button>
+            </Grid>
+        </GroupBox>
+        <StatusBar VerticalAlignment="Bottom" Width="Auto" Margin="4,0,0,0" HorizontalContentAlignment="Left" Grid.Row="5" Grid.ColumnSpan="2" >
+            <TextBlock x:Name="size" Text="Size: 0*0" ToolTip="Размер таблицы" ></TextBlock>
+            <Separator></Separator>
+            <TextBlock x:Name="indexElement" Text="IndexElement: i*j" ToolTip="Размер таблицы" ></TextBlock>
+            <Separator></Separator>
+            <TextBlock x:Name="time" Text="12:12" ToolTip="Текущее время"  HorizontalAlignment="Right"></TextBlock>
+            <Separator HorizontalAlignment="Right"></Separator>
+            <TextBlock x:Name="data" Text="20.07.2021" ToolTip="Текущая дата" HorizontalAlignment="Right" ></TextBlock>
+        </StatusBar>
+
+    </Grid>
+</Window>
